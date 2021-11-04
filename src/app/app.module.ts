@@ -4,31 +4,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/users.component';
-import { UsersListComponent } from './users/users-list/users-list.component';
-import { UsersDetailsComponent } from './users/users-details/users-details.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserDetailsComponent } from './users/user-details/user-details.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatListModule} from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
 
 import { StoreModule } from '@ngrx/store';
 import { APP_REDUCER } from './core/store/app.state';
 import { EffectsModule } from '@ngrx/effects';
-import { UsersEffect } from './core/store/users/user.effects';
+import { UsersEffect } from './core/store/user/user.effects';
 import { FormsModule } from '@angular/forms';
 import { ErrorDialog } from './core/dialogs/error-dialog/error-dialog.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UserComponent } from './users/user.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    UsersListComponent,
-    UsersDetailsComponent,
+    UserComponent,
+    UserListComponent,
+    UserDetailsComponent,
     ErrorDialog
   ],
   imports: [
@@ -39,6 +40,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatGridListModule,
     MatListModule,
     MatDialogModule,
+    MatButtonModule,
     StoreModule.forRoot(APP_REDUCER),
     EffectsModule.forRoot([UsersEffect])
   ],

@@ -1,17 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from 'src/app/core/store/users/user.model';
+import { User } from 'src/app/core/store/user/user.model';
 
 @Component({
-    selector: 'app-users-list',
-    templateUrl: './users-list.component.html',
-    styleUrls: ['./users-list.component.css']
+    selector: 'app-user-list',
+    templateUrl: './user-list.component.html',
+    styleUrls: ['./user-list.component.css']
 })
-export class UsersListComponent implements OnInit {
+export class UserListComponent {
 
     @Input()
-    users: Array<User> = [];
+    users!: Array<User>;
 
     public selectionChanged: Subject<void> = new Subject();
 
@@ -21,9 +21,4 @@ export class UsersListComponent implements OnInit {
     selectedUser = this.selectionChanged.pipe(
         map(() => this.selectedOptions[0])
     );
-
-    constructor() { }
-
-    ngOnInit(): void {
-    }
 }
