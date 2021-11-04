@@ -1,21 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { GetUsersList } from '../core/store/users/user.actions';
-import { User } from '../core/store/users/user.model';
-import { UsersState } from '../core/store/users/user.reducer';
-import * as UserSelector from '../core/store/users/user.selectors';
+import { GetUsersList } from '../core/store/user/user.actions';
+import { User } from '../core/store/user/user.model';
+import { UsersState } from '../core/store/user/user.reducer';
+import * as UserSelector from '../core/store/user/user.selectors';
 
 @Component({
-    selector: 'app-users',
-    templateUrl: './users.component.html',
-    styleUrls: ['./users.component.css']
+    selector: 'app-user',
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.css']
 })
-export class UsersComponent implements OnInit {
+export class UserComponent implements OnInit {
 
-    selectedUser: User = {
-        id: 0,
-        name: ""
-    };
+    selectedUser!: User;
 
     users$ = this.store.select<any>(UserSelector.getAllUsers);
     // error$ = this.store.select<any>(UserSelector.getFailure);
