@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { filter } from 'rxjs';
 import { GetUsersList } from '../core/store/users/user.actions';
 import { User } from '../core/store/users/user.model';
 import { UsersState } from '../core/store/users/user.reducer';
@@ -20,16 +18,16 @@ export class UsersComponent implements OnInit {
     };
 
     users$ = this.store.select<any>(UserSelector.getAllUsers);
-    error$ = this.store.select<any>(UserSelector.getFailure);
+    // error$ = this.store.select<any>(UserSelector.getFailure);
 
     constructor(private store: Store<UsersState>) { }
 
     ngOnInit(): void {
         this.store.dispatch(GetUsersList());
 
-        this.error$
-        .pipe(filter<string>(error => error === ''))
-        .subscribe(error => console.log(error))
+        // this.error$
+        // .pipe(filter<string>(error => error === undefined))
+        // .subscribe(error => console.log(error))
 
         // this.store.select<any>(UserSelector.getUserById(1)).subscribe(user=> console.log(user))
     }
@@ -38,16 +36,3 @@ export class UsersComponent implements OnInit {
         this.selectedUser = selectedUser;
     }
 }
-
-
-// @Component({
-//     selector: 'dialog-elements-example-dialog',
-//     template: `
-//         <h1 mat-dialog-title>Dialog with elements</h1>
-//         <div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
-//         <div mat-dialog-actions>
-//             <button mat-button mat-dialog-close>Close</button>
-//         </div>
-//     `,
-//   })
-//   export class DialogElementsExampleDialog {}

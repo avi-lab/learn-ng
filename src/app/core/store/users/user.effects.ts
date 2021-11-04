@@ -17,6 +17,7 @@ export class UsersEffect {
         mergeMap(() => this.usersService.getAll().pipe(
             map((users: Array<User>) => UsersActions.GetUsersListSuccess({ users: users })),
             catchError((errorResponse: ErrorResponse) => {
+                console.log(errorResponse);
                 this.openDialog(errorResponse);
                 return of(UsersActions.GetUsersListFailure({ errorResponse: errorResponse }));
             })
@@ -25,7 +26,7 @@ export class UsersEffect {
 
     constructor(private actions$: Actions, private usersService: UsersService, public dialog: MatDialog) { }
 
-    openDialog(errorResponse: ErrorResponse) {
+    openDialog(errorResponse: ErrorResponse) {       
         this.dialog.open(ErrorDialog, { data: errorResponse });
     }
 }
