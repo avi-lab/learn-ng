@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { filter } from 'rxjs';
-import { GetUsersList } from '../core/store/users/users.actions';
-import { User } from '../core/store/users/users.model';
-import { UsersState } from '../core/store/users/users.reducer';
-import * as UserSelector from '../core/store/users/users.selectors';
+import { GetUsersList } from '../core/store/users/user.actions';
+import { User } from '../core/store/users/user.model';
+import { UsersState } from '../core/store/users/user.reducer';
+import * as UserSelector from '../core/store/users/user.selectors';
 
 @Component({
     selector: 'app-users',

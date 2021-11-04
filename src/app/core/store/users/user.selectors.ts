@@ -1,7 +1,7 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
-import { User } from './users.model';
-import { UsersState } from './users.reducer';
+import { User } from './user.model';
+import { UsersState } from './user.reducer';
 
 const getUsersState = (state: AppState) => state.users;
 

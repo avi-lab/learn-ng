@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { map, Subject } from 'rxjs';
-import { User } from 'src/app/core/store/users/users.model';
+import { User } from 'src/app/core/store/users/user.model';
 
 @Component({
     selector: 'app-users-list',

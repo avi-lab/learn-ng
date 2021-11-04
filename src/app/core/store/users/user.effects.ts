@@ -5,9 +5,9 @@ import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { ErrorDialog } from '../../dialogs/error-dialog/error-dialog.component';
 import { ErrorResponse } from '../store.model';
-import * as UsersActions from './users.actions';
-import { User } from './users.model';
-import { UsersService } from './users.service';
+import * as UsersActions from './user.actions';
+import { User } from './user.model';
+import { UsersService } from './user.service';
 
 @Injectable()
 export class UsersEffect {

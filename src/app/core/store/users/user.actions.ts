@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { ErrorResponse } from '../store.model';
-import { User } from './users.model';
+import { User } from './user.model';
 
 export enum ActionTypes {
     GET_USERS = 'GET_USERS',
