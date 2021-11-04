@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { UserListComponent } from './users/user-list/user-list.component';
-import { UserDetailsComponent } from './users/user-details/user-details.component';
+
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserDetailsComponent } from './user/user-details/user-details.component';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +21,7 @@ import { UsersEffect } from './core/store/user/user.effects';
 import { FormsModule } from '@angular/forms';
 import { ErrorDialog } from './core/dialogs/error-dialog/error-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { UserComponent } from './users/user.component';
+import { UserComponent } from './user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 
 
