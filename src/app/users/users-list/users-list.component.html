@@ -1,0 +1,5 @@
+<mat-selection-list #user_list [multiple]="false" (selectionChange)="selectionChanged.next()" [(ngModel)]="selectedOptions">
+    <mat-list-option *ngFor="let user of users" [value]="user">
+        {{user.name}}
+    </mat-list-option>
+</mat-selection-list>

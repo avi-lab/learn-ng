@@ -1,0 +1,8 @@
+mat-grid-tile {
+    background: lightblue;
+}
+
+::ng-deep .mat-grid-tile-content{
+    display: block !important;
+    padding: 5px !important;
+}

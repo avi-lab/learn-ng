@@ -1,0 +1,9 @@
+<h2>Users</h2>
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        <app-users-list [users]="users$ | async" (selectedUser)="userSelected($event)"></app-users-list>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <app-users-details [selectedUser]="selectedUser"></app-users-details>
+    </mat-grid-tile>
+</mat-grid-list>
