@@ -1,0 +1,11 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+:host {
+    background: #E6E6FA	;
+}
+
+.toolbar-bg {
+    background-color: #4682B4;
+  }

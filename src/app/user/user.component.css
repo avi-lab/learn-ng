@@ -1,8 +1,12 @@
-mat-grid-tile {
-    background: lightblue;
+mat-grid-list {
+    padding: 15px;
 }
 
-::ng-deep .mat-grid-tile-content{
+::ng-deep .mat-grid-tile-content {
     display: block !important;
     padding: 5px !important;
+}
+
+.user-main-card {
+    margin: 15px;
 }

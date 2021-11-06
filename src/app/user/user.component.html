@@ -1,9 +1,8 @@
-<h2>Users</h2>
-<mat-grid-list cols="2" rowHeight="2:1">
+<mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
     <mat-grid-tile>
         <app-user-list [users]="users$ | async" (selectedUser)="userSelected($event)"></app-user-list>
     </mat-grid-tile>
     <mat-grid-tile>
-        <app-user-details [selectedUser]="selectedUser"></app-user-details>
+        <app-user-details [selectedUser]="selectedUser" *ngIf="selectedUser"></app-user-details>
     </mat-grid-tile>
 </mat-grid-list>
