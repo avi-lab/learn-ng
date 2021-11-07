@@ -17,9 +17,37 @@ export class UsersEffect {
         mergeMap(() => this.usersService.getAll().pipe(
             map((users: Array<User>) => UsersActions.GetUsersListSuccess({ users: users })),
             catchError((errorResponse: ErrorResponse) => {
-                console.log(errorResponse);
                 this.openDialog(errorResponse);
                 return of(UsersActions.GetUsersListFailure({ errorResponse: errorResponse }));
+            })
+        ))
+    ));
+
+    loadUserById$ = createEffect(() => this.actions$.pipe(
+        ofType(UsersActions.ActionTypes.GET_USER_BY_ID),
+        mergeMap(userId => this.usersService.getById(userId).pipe(
+            map((user: User) => {
+                console.log("loadUserById");
+                
+                return UsersActions.GetUserByIdSuccess({ user: user });
+            }),
+            catchError((errorResponse: ErrorResponse) => {
+                this.openDialog(errorResponse);
+                return of(UsersActions.GetUserByIdFailure({ errorResponse: errorResponse }));
+            })
+        ))
+    ));
+
+    addUser$ = createEffect(() => this.actions$.pipe(
+        ofType(UsersActions.ActionTypes.ADD_USER),
+        mergeMap((user: any) => this.usersService.add(user.user).pipe(
+            map((user: User) => {
+                console.log("addUser");
+                return UsersActions.AddUserSuccess({ user: user });
+            }),
+            catchError((errorResponse: ErrorResponse) => {
+                this.openDialog(errorResponse);
+                return of(UsersActions.GetUserByIdFailure({ errorResponse: errorResponse }));
             })
         ))
     ));

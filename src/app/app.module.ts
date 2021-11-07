@@ -18,6 +18,7 @@ import { APP_REDUCER } from './core/store/app.state';
 import { UsersEffect } from './core/store/user/user.effects';
 
 import { MaterialModule } from './material.module';
+import { UserAddComponent } from './user/user-add/user-add.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MaterialModule } from './material.module';
     UserComponent,
     UserListComponent,
     UserDetailsComponent,
-    ErrorDialog
+    ErrorDialog,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,

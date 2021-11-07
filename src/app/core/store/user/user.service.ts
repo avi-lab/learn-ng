@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
-import { of, throwError } from "rxjs";
+import { Observable, of, throwError } from "rxjs";
+import { User } from "./user.model";
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
 
-    getAll() {
+    getAll(): Observable<Array<User>> {
         let errorResponse = {
             code: 'code 1',
             message: 'this is an error message '
@@ -22,5 +23,16 @@ export class UsersService {
                 name: "majdi"
             }]
         );
+    }
+
+    getById(userId: number): Observable<User> {
+        return of({
+            id: 3,
+            name: "salah"
+        });
+    }
+
+    add(user: User): Observable<User> {
+        return of(user);
     }
 }

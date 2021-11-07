@@ -1,4 +1,4 @@
-<mat-card class="user-main-card">
+<mat-card>
     <mat-card-title>Users</mat-card-title>
     <mat-card-content>
         <mat-selection-list #user_list [multiple]="false" (selectionChange)="selectionChanged.next()"
@@ -8,4 +8,8 @@
             </mat-list-option>
         </mat-selection-list>
     </mat-card-content>
+
+    <mat-card-actions align="end">
+        <button mat-button (click)="addUser()">add</button>
+      </mat-card-actions>    
 </mat-card>

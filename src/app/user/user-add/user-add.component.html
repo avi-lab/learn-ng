@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Create Users</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="name">
+        <button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>close</button>
+    <button mat-button mat-dialog-close (click)="createUser()" [disabled]="!name">create</button>
+</div>

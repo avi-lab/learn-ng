@@ -1,8 +1,17 @@
-<mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
+<div style="width:100%;display: flex;">
+    <div style="width:50%;display: inline-block;padding: 15px;">
+        <app-user-list [users]="users$ | async" (selectedUser)="userSelected($event)"></app-user-list>
+    </div>
+    <div style="width:50%;display: inline-block;padding: 15px;">
+        <app-user-details [selectedUser]="selectedUser" *ngIf="selectedUser"></app-user-details>
+    </div>
+</div>
+
+<!-- <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'10px'">
     <mat-grid-tile>
         <app-user-list [users]="users$ | async" (selectedUser)="userSelected($event)"></app-user-list>
     </mat-grid-tile>
     <mat-grid-tile>
         <app-user-details [selectedUser]="selectedUser" *ngIf="selectedUser"></app-user-details>
     </mat-grid-tile>
-</mat-grid-list>
+</mat-grid-list> -->

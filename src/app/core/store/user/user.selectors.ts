@@ -1,4 +1,4 @@
-import { createSelector } from '@ngrx/store';
+import { createSelector, Store } from '@ngrx/store';
 import { AppState } from '../app.state';
 import { User } from './user.model';
 import { UsersState } from './user.reducer';
@@ -19,3 +19,4 @@ export const getUserById = (userId: number) => createSelector(
     getAllUsers,
     (users: Array<User>) => users.find(user => user.id === userId)
 );
+

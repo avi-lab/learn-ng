@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { GetUsersList } from '../core/store/user/user.actions';
+import * as UsersActions from '../core/store/user/user.actions';
 import { User } from '../core/store/user/user.model';
 import { UsersState } from '../core/store/user/user.reducer';
 import * as UserSelector from '../core/store/user/user.selectors';
@@ -20,7 +20,8 @@ export class UserComponent implements OnInit {
     constructor(private store: Store<UsersState>) { }
 
     ngOnInit(): void {
-        this.store.dispatch(GetUsersList());
+        this.store.dispatch(UsersActions.GetUsersList());
+        // this.store.dispatch(UsersActions.GetUserById({ userId: 3 }));
 
         // this.error$
         // .pipe(filter<string>(error => error === undefined))
