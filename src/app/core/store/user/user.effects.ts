@@ -25,12 +25,8 @@ export class UsersEffect {
 
     loadUserById$ = createEffect(() => this.actions$.pipe(
         ofType(UsersActions.ActionTypes.GET_USER_BY_ID),
-        mergeMap(userId => this.usersService.getById(userId).pipe(
-            map((user: User) => {
-                console.log("loadUserById");
-                
-                return UsersActions.GetUserByIdSuccess({ user: user });
-            }),
+        mergeMap((action: any) => this.usersService.getById(action.userId).pipe(
+            map((user: User) => UsersActions.GetUserByIdSuccess({ user: user })),
             catchError((errorResponse: ErrorResponse) => {
                 this.openDialog(errorResponse);
                 return of(UsersActions.GetUserByIdFailure({ errorResponse: errorResponse }));
@@ -40,14 +36,33 @@ export class UsersEffect {
 
     addUser$ = createEffect(() => this.actions$.pipe(
         ofType(UsersActions.ActionTypes.ADD_USER),
-        mergeMap((user: any) => this.usersService.add(user.user).pipe(
-            map((user: User) => {
-                console.log("addUser");
-                return UsersActions.AddUserSuccess({ user: user });
-            }),
+        mergeMap((action: any) => this.usersService.add(action.user).pipe(
+            map((user: User) => UsersActions.AddUserSuccess({ user: user })),
             catchError((errorResponse: ErrorResponse) => {
                 this.openDialog(errorResponse);
-                return of(UsersActions.GetUserByIdFailure({ errorResponse: errorResponse }));
+                return of(UsersActions.AddUserFailure({ errorResponse: errorResponse }));
+            })
+        ))
+    ));
+
+    updateUser$ = createEffect(() => this.actions$.pipe(
+        ofType(UsersActions.ActionTypes.UPDATE_USER),
+        mergeMap((action : any) => this.usersService.update(action.user).pipe(
+            map((user: User) => UsersActions.UpdateUserSuccess({ user: user })),
+            catchError((errorResponse: ErrorResponse) => {
+                this.openDialog(errorResponse);
+                return of(UsersActions.UpdateUserFailure({ errorResponse: errorResponse }));
+            })
+        ))
+    ));
+
+    deleteUser$ = createEffect(() => this.actions$.pipe(
+        ofType(UsersActions.ActionTypes.DELETE_USER),
+        mergeMap((action : any) => this.usersService.delete(action.userId).pipe(
+            map((userId: number) => UsersActions.DeleteUserSuccess({ userId: userId })),
+            catchError((errorResponse: ErrorResponse) => {
+                this.openDialog(errorResponse);
+                return of(UsersActions.DeleteUserFailure({ errorResponse: errorResponse }));
             })
         ))
     ));

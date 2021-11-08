@@ -1,9 +1,29 @@
-<div style="width:100%;display: flex;">
-    <div style="width:50%;display: inline-block;padding: 15px;">
-        <app-user-list [users]="users$ | async" (selectedUser)="userSelected($event)"></app-user-list>
-    </div>
-    <div style="width:50%;display: inline-block;padding: 15px;">
-        <app-user-details [selectedUser]="selectedUser" *ngIf="selectedUser"></app-user-details>
+<div style="padding: 15px;">
+    <mat-card>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div style="display:flex; align-items:center;">
+                <div style="display:flex; flex-direction:column;">
+                    <div style="margin-left: 15px;">
+                        <h1 matLine style="display: contents;"> Users</h1>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button mat-icon-button (click)="refresh()">
+                    <mat-icon>refresh</mat-icon>
+                </button>
+                <button mat-raised-button color="primary" (click)="addUser()">Add</button>
+            </div>
+        </div>
+    </mat-card>
+
+    <div style="width:100%;display: flex;">
+        <div style="width:50%;display: inline-block;padding: 15px 10px 15px 0; ">
+            <app-user-list [users]="users$ | async" (selectedUser)="userSelected($event)"></app-user-list>
+        </div>
+        <div style="width:50%;display: inline-block;padding: 15px 0 15px 10px;">
+            <app-user-details [selectedUser]="selectedUser" *ngIf="selectedUser"></app-user-details>
+        </div>
     </div>
 </div>
 

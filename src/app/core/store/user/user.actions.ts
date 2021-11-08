@@ -13,7 +13,15 @@ export enum ActionTypes {
 
     ADD_USER = 'ADD_USER',
     ADD_USER_SUCCESS = 'ADD_USER_SUCCESS',
+    ADD_USER_FAILURE = 'ADD_USER_FAILURE',
 
+    UPDATE_USER = 'UPDATE_USER',
+    UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS',
+    UPDATE_USER_FAILURE = 'UPDATE_USER_FAILURE',
+
+    DELETE_USER = 'DELETE_USER',
+    DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS',
+    DELETE_USER_FAILURE = 'DELETE_USER_FAILURE',
 }
 
 export const GetUsersList = createAction(ActionTypes.GET_USERS);
@@ -26,7 +34,9 @@ export const GetUsersListFailure = createAction(
     ActionTypes.GET_USERS_FAILURE, props<{ errorResponse: ErrorResponse }>()
 );
 
-export const GetUserById = createAction(ActionTypes.GET_USER_BY_ID, props<{ userId: number }>());
+export const GetUserById = createAction(
+    ActionTypes.GET_USER_BY_ID, props<{ userId: number }>()
+);
 
 export const GetUserByIdSuccess = createAction(
     ActionTypes.GET_USER_BY_ID_SUCCESS, props<{ user: User }>()
@@ -44,3 +54,30 @@ export const AddUserSuccess = createAction(
     ActionTypes.ADD_USER_SUCCESS, props<{ user: User }>()
 );
 
+export const AddUserFailure = createAction(
+    ActionTypes.ADD_USER_FAILURE, props<{ errorResponse: ErrorResponse }>()
+);
+
+export const UpdateUser = createAction(
+    ActionTypes.UPDATE_USER, props<{ user: User }>()
+);
+
+export const UpdateUserSuccess = createAction(
+    ActionTypes.UPDATE_USER_SUCCESS, props<{ user: User }>()
+);
+
+export const UpdateUserFailure = createAction(
+    ActionTypes.UPDATE_USER_FAILURE, props<{ errorResponse: ErrorResponse }>()
+);
+
+export const DeleteUser = createAction(
+    ActionTypes.DELETE_USER, props<{ userId: number }>()
+);
+
+export const DeleteUserSuccess = createAction(
+    ActionTypes.DELETE_USER_SUCCESS, props<{ userId: number }>()
+);
+
+export const DeleteUserFailure = createAction(
+    ActionTypes.DELETE_USER_FAILURE, props<{ errorResponse: ErrorResponse }>()
+);

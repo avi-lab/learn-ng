@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, of, throwError } from "rxjs";
+import { EMPTY, Observable, of, throwError } from "rxjs";
 import { User } from "./user.model";
 
 @Injectable({ providedIn: 'root' })
@@ -27,12 +27,20 @@ export class UsersService {
 
     getById(userId: number): Observable<User> {
         return of({
-            id: 3,
-            name: "salah"
+            id: userId,
+            name: "user " + userId
         });
     }
 
     add(user: User): Observable<User> {
         return of(user);
+    }
+
+    update(user: User): Observable<User> {
+        return of(user);
+    }
+
+    delete(userId: number): Observable<number> {
+        return of(userId);
     }
 }

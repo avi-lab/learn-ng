@@ -1,15 +1,25 @@
 <mat-card>
-    <mat-card-title>Users</mat-card-title>
     <mat-card-content>
         <mat-selection-list #user_list [multiple]="false" (selectionChange)="selectionChanged.next()"
             [(ngModel)]="selectedOptions">
             <mat-list-option *ngFor="let user of users" [value]="user">
-                {{user.name}}
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; align-items:center;">
+                        <mat-icon matListAvatar style="display: contents;">person</mat-icon>
+
+                        <div style="display:flex; flex-direction:column;">
+                            <div style="margin-left: 15px;">
+                                <h3 matLine style="display: contents;"> {{user.name}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button mat-icon-button (click)="remove(user.id)">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
             </mat-list-option>
         </mat-selection-list>
     </mat-card-content>
-
-    <mat-card-actions align="end">
-        <button mat-button (click)="addUser()">add</button>
-      </mat-card-actions>    
 </mat-card>

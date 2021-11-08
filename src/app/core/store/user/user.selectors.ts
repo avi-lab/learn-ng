@@ -17,6 +17,11 @@ export const getFailure = createSelector(
 
 export const getUserById = (userId: number) => createSelector(
     getAllUsers,
-    (users: Array<User>) => users.find(user => user.id === userId)
+    (users: Array<User>) => {
+        const user = users.find(user => user.id === userId);
+        if(!user) throw new Error("user not found");
+        
+        return user;
+    }
 );
 

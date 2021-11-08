@@ -27,9 +27,9 @@ export class UserListComponent {
         map(() => this.selectedOptions[0])
     );
 
-    constructor(public dialog: MatDialog) { }
+    constructor(private store: Store<UsersState>) { }
 
-    addUser(){
-        this.dialog.open(UserAddComponent);
+    remove(userId: number){
+        this.store.dispatch(UsersActions.DeleteUser({ userId: userId}));
     }
 }

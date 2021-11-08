@@ -1,8 +1,23 @@
-<mat-card class="user-main-card">
-    <mat-card-title>User Details</mat-card-title>
-    <mat-card-content>
-        id : {{ selectedUser?.id }}
-        <br />
-        name : {{ selectedUser?.name }}
-    </mat-card-content>
-</mat-card>
+<form [formGroup]="profileForm" (ngSubmit)="update()">
+    <mat-card class="user-main-card">
+        <mat-card-title>User Details</mat-card-title>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>id</mat-label>
+                <input matInput formControlName="id">
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+                <a matSuffix mat-icon-button aria-label="Clear" (click)="profileForm.controls['name'].setValue('')">
+                    <mat-icon>close</mat-icon>
+                </a>
+            </mat-form-field>
+
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button type="submit">Update</button>
+        </mat-card-actions>
+    </mat-card>
+</form>
